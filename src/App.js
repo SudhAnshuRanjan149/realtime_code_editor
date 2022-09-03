@@ -1,5 +1,6 @@
 // GLOBAL
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
 
 // ROUTES
 import Home from "./pages/Home";
@@ -10,12 +11,26 @@ import "./App.css";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/editor/:roomID" element={<EditorPage />} />
-      </Routes>
-    </BrowserRouter>
+    <>
+      <div>
+        <Toaster
+          position="top-right"
+          toastOptions={{
+            success: {
+              theme: {
+                primary: "#4aed88",
+              },
+            },
+          }}
+        ></Toaster>
+      </div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/editor/:roomID" element={<EditorPage />} />
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }
 
